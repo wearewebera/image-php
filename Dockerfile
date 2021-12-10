@@ -8,6 +8,7 @@ RUN apt-get update  \
     curl \
     git \
     wget \
+    libfcgi-bin \
     php-fpm \
     php-common \
     php-mysql \
