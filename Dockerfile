@@ -7,6 +7,7 @@ RUN apt-get update  \
     vim \
     curl \
     git \
+    wget \
     php-fpm \
     php-common \
     php-mysql \
@@ -34,7 +35,10 @@ RUN mkdir -p /run/php; chown www-data:www-data /run/php \
     && touch /var/log/php7.4-fpm.log; chown www-data:www-data /var/log/php7.4-fpm.log \
     && ln -s /usr/sbin/php-fpm* /usr/sbin/php-fpm \
     && mkdir -p /var/cache/php; chown www-data:www-data /var/cache/php \
-    && echo "pm.status_path = /status" >> /etc/php/7.4/fpm/pool.d/www.conf
+    && echo "pm.status_path = /status" >> /etc/php/7.4/fpm/pool.d/www.conf \
+    && wget -O /usr/local/bin/php-fpm-healthcheck \
+       https://raw.githubusercontent.com/renatomefi/php-fpm-healthcheck/master/php-fpm-healthcheck \
+    && chmod +x /usr/local/bin/php-fpm-healthcheck
 
 USER www-data
 
