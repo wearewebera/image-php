@@ -41,7 +41,9 @@ RUN mkdir -p /run/php; chown www-data:www-data /run/php \
        https://raw.githubusercontent.com/renatomefi/php-fpm-healthcheck/master/php-fpm-healthcheck \
     && chmod +x /usr/local/bin/php-fpm-healthcheck
 
-USER www-data
+COPY logging.conf /etc/php/7.4/fpm/pool.d/
+
+USER www-data 
 
 WORKDIR ${HOME}
 
