@@ -34,7 +34,6 @@ ln -s /usr/sbin/php-fpm* /usr/sbin/php-fpm
 #
 # Set up PHP customization
 #
-
 sed -i 's@^error_log.*@error_log = /proc/self/fd/2@' ${php_fpm_conf}
 sed -i 's@^listen.*@listen = 9000@' ${php_fpm_www}
 sed -i 's/^;pm.status_path/pm.status_path/' ${php_fpm_www}
