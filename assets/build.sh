@@ -48,4 +48,5 @@ echo php_admin_value[error_log] = /proc/self/fd/2 >> ${php_fpm_www}
 #
 wget -O /usr/local/bin/php-fpm-healthcheck \
     https://raw.githubusercontent.com/renatomefi/php-fpm-healthcheck/master/php-fpm-healthcheck
+test -f .wget-hsts && rm -f .wget-hsts
 chmod +x /usr/local/bin/php-fpm-healthcheck
