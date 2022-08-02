@@ -16,8 +16,9 @@ rm -rf /var/lib/apt/lists/*
 # Set up directories and permissions
 #
 mkdir -p /run/php /var/cache/php ${HOME}
+cp /tmp/assets/index.php ${HOME}
 touch /var/log/php-fpm.log
-chown www-data:www-data /run/php /var/cache/php ${HOME} /var/log/php-fpm.log
+chown www-data:www-data /run/php /var/cache/php ${HOME} ${HOME}/index.php /var/log/php-fpm.log
 
 #
 # Find php configurations

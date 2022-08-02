@@ -1,8 +1,9 @@
 FROM webera/base
 ENV HOME=/var/www/public_html
-COPY assets/build.sh /bin
-RUN /bin/build.sh && rm /bin/build.sh
-COPY --chown=33:33 assets/index.php $HOME
+
+COPY assets /tmp/assets
+RUN /tmp/assets/build.sh && rm -rf /tmp/assets
+
 USER www-data 
 WORKDIR ${HOME}
 EXPOSE 9000
